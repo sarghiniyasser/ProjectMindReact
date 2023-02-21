@@ -17,6 +17,7 @@ function App() {
         >
           Learn React
         </a>
+        <div className='text-gray-600'>HOLA</div>
       </header>
     </div>
   );
