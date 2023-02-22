@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 
 import './App.css';
 import Welcome from './Pages/Welcome';
@@ -9,8 +9,8 @@ const App = () => {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Welcome />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Welcome />} />
     </Routes>
   </BrowserRouter>
   )
