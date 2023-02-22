@@ -1,6 +1,5 @@
 import React from "react";
-
-const Login = () =>{
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';const Login = () =>{
     return(
         <>
         <h1>login</h1>
@@ -18,6 +17,9 @@ const Login = () =>{
         <button style={{background: 'gray'}}>Google</button>
         <button style={{background: 'blue'}}>Fcebook</button>
         <button style={{background: 'black', color: 'white'}}>Hithub</button>
+
+        
+            <Link to = "/register"><button style={{marginLeft: '50px', background: 'purple'}}>Register</button></Link>
         </div>
         </>
     )

@@ -1,15 +1,15 @@
 import React from "react";
 
 
-const Welcome = () =>{
+const Register = () =>{
     return(
         <>
         <div className="flex">
-            welcome
+            Register
         </div>
         
         </>
     )
 }
 
-export default Welcome;
+export default Register;
