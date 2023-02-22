@@ -1,9 +1,13 @@
 import React from "react";
+import Sidebar from "../Components/Sidebar";
 
 
 const MainPage = () =>{
     return(
-        <h1>MainPage</h1>
+        <div  className="bg-gray-800 w-screen h-screen">
+            <Sidebar /> 
+        </div>
+       
     )
 }
 
