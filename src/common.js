@@ -1,16 +1,16 @@
-const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
-  const [passwordValid, setPasswordValid] = useState(false);
 
-  const handlePasswordChange = (event) => {
-    const passwordValue = event.target.value;
-    setPassword(passwordValue);
+function checkIfNotEmpty(str) {
+    const value = str.trim();
+    if (value.length == 0) {
+        return false;
+    }
+    return true;
+}
 
-    // Validar la contraseña
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-    setPasswordValid(passwordValue === "" || passwordRegex.test(passwordValue));
+function checkIfEmail(str) {
+    // Regular expression to check if string is email
+    const regexExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gi;
+    return regexExp.test(str);
+}
 
-
-export {  }
+export { checkIfEmail, checkIfNotEmpty }
