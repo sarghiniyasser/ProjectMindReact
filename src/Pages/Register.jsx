@@ -37,6 +37,8 @@ const Register = () => {
             <input id="email" type="email" style={{ background: 'gray' }}></input>
             <label>contraseña</label>
             <input id="password" type="password" style={{ background: 'gray' }}></input>
+            {!passwordValid && password !== "" && <div style={{color: 'red'}}>La contraseña es demasiado débil</div>}
+
             <label>Repetir contraseña</label>
             <input id="password2" type="password" style={{ background: 'gray' }}></input>
             <button style={{ background: 'green', marginLeft: '20px' }} onClick={registerInApplication}>Submit</button>
