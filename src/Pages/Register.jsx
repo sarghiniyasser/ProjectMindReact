@@ -4,7 +4,7 @@ import firebase from 'firebase/compat/app';
 import { auth, db } from "../firebase.js";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-const Login = () => {
+const Register = () => {
 
     const authForRegister = getAuth();
     
@@ -54,4 +54,4 @@ const Login = () => {
 }
 
 
-export default Login;
+export default Register;
