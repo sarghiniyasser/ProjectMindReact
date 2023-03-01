@@ -2,13 +2,14 @@ import React from "react";
 import Sidebar from "../Components/Sidebar";
 import Sidemenu from "../Components/Sidemenu";
 
-const MainPage = () =>{
-    return(
-        <div  className="bg-gray-400 w-screen h-screen flex flex-row">
-            <Sidebar /> 
-            <Sidemenu />
+const MainPage = () => {
+    return (
+        <div className=" bg-gray-700 flex flex-row gap-0">
+        <div className="w-20 m-0 p-0">
+          <Sidebar />
         </div>
-       
+        
+      </div>
     )
 }
 
