@@ -13,9 +13,29 @@ const Login = () => {
      */
     function signInWithGoogle() {
         const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider);
-        console.log(auth.currentUser);
+        auth.signInWithPopup(provider).then((result) => {
+            if (result.user !== null) {
+                const displayName = result.user.displayName;
+                const uid = result.user.uid;
+                console.log(displayName);
+                console.log(uid);
+                <Link to="/Home"></Link>
+            }
+
+        }).catch((error) => {
+            // エラー発生時は、その詳細が
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.email;
+            const credential = error.credential;
+            console.log(error);
+            console.log(errorCode);
+            console.log(errorMessage);
+            console.log(email);
+            console.log(credential);
+        });
     }
+
 
     /**
      * Sign in con google.

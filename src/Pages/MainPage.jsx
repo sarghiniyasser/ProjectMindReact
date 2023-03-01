@@ -1,6 +1,9 @@
 import React from "react";
 import Sidebar from "../Components/Sidebar";
 import Sidemenu from "../Components/Sidemenu";
+import firebase from 'firebase/compat/app';
+import { auth } from "../firebase.js";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const MainPage = () => {
     return (
