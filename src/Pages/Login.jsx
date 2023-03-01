@@ -22,7 +22,6 @@ const Login = () => {
                 </div>
                 <Link to="/register"><button style={{ marginLeft: '50px', background: 'purple' }}>Register</button></Link>
             </div>
-
         </>
     )
 }
