@@ -4,7 +4,8 @@ import MainPage from './Pages/MainPage';
 import './App.css';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
-import Home from './Pages/Home';
+import WelcomePage from './Pages/WelcomePage';
+import Test from './Pages/Test';
 
 const App = () => {
   return (
@@ -13,7 +14,8 @@ const App = () => {
       <Route path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/mainpage" element={<MainPage />} />
-      <Route path="/home" element={<Home />} />
+      <Route path="/welcomepage" element={<WelcomePage />} />
+      <Route path="/test" element={<Test />} />
       
     </Routes>
   </BrowserRouter>

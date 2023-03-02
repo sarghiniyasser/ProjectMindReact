@@ -6,10 +6,10 @@
 @layer components {
 
   .sidebar-icon {
-    @apply relative flex items-center justify-center h-12
-    w-12 mt-2 mb-2 mx-auto shadow-lg bg-gray-700 text-blue-500
-    hover:bg-blue-600 hover:text-white
-    rounded-3xl hover:rounded-xl transition-all duration-200 ease-linear
+    @apply relative flex items-center justify-center h-14
+    w-14 mt-2 mb-2 mx-auto shadow-lg bg-gray-700 text-blue-500
+    hover:bg-septimo hover:text-white hover:scale-105
+    rounded-xl hover:rounded-xl transition-all duration-200 ease-linear
     cursor-pointer;
   }
   .sidebar-tooltip {
@@ -23,3 +23,6 @@
 .userIcon {
   margin-top: 20px;
 }
+
+
+
