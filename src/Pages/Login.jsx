@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import firebase from 'firebase/compat/app';
 import { auth } from "../firebase.js";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -7,11 +7,13 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 const Login = () => {
 
     const authLogin = getAuth();
+    const navigate = useNavigate();
 
     /**
      * Sign in con google.
      */
-    function signInWithGoogle() {
+    const signInWithGoogle = () => {
+        
         const provider = new firebase.auth.GoogleAuthProvider();
         auth.signInWithPopup(provider).then((result) => {
             if (result.user !== null) {
@@ -19,7 +21,7 @@ const Login = () => {
                 const uid = result.user.uid;
                 console.log(displayName);
                 console.log(uid);
-                <Link to="/Home"></Link>
+                navigate("MainPage");
             }
 
         }).catch((error) => {
@@ -42,7 +44,27 @@ const Login = () => {
      */
     function signInWithFacebook() {
         const provider = new firebase.auth.FacebookAuthProvider();
-        auth.signInWithPopup(provider);
+        auth.signInWithPopup(provider).then((result) => {
+            if (result.user !== null) {
+                const displayName = result.user.displayName;
+                const uid = result.user.uid;
+                console.log(displayName);
+                console.log(uid);
+                navigate("MainPage");
+            }
+
+        }).catch((error) => {
+            // エラー発生時は、その詳細が
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.email;
+            const credential = error.credential;
+            console.log(error);
+            console.log(errorCode);
+            console.log(errorMessage);
+            console.log(email);
+            console.log(credential);
+        });
     }
 
     /**
@@ -50,7 +72,28 @@ const Login = () => {
      */
     function signInWithGithub() {
         const provider = new firebase.auth.GithubAuthProvider();
-        auth.signInWithPopup(provider);
+        auth.signInWithPopup(provider).then((result) => {
+            console.log(result);
+            if (result.user !== null) {
+                const displayName = result.user.displayName;
+                const uid = result.user.uid;
+                console.log(displayName);
+                console.log(uid);
+                navigate("MainPage");
+            }
+
+        }).catch((error) => {
+            // エラー発生時は、その詳細が
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.email;
+            const credential = error.credential;
+            console.log(error);
+            console.log(errorCode);
+            console.log(errorMessage);
+            console.log(email);
+            console.log(credential);
+        });
     }
 
     /**
