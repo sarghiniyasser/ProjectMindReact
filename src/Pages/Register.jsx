@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
 import { auth, db } from "../firebase.js";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -7,12 +7,13 @@ import { checkIfEmail, checkIfNotEmpty } from "../common";
 
 const Register = () => {
 
-    const authForRegister = getAuth();
+    const authForRegister = auth;
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
     const [passwordValid, setPasswordValid] = useState(false);
+    const navigate = useNavigate();
     
     /**
      * Registrar a la aplicación
@@ -20,16 +21,29 @@ const Register = () => {
     function registerInApplication() {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
+        const name = document.getElementById('userName').value;
 
         createUserWithEmailAndPassword(authForRegister, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                // ...
+            .then(async (user) => {
+                // console.log(user);
+                const displayName = name;
+                const uid = user.user.reloadUserInfo.localId;                ;
+                const eMail = user.user.email;
+                const data = {
+                    name: displayName,
+                    uid: uid,
+                    e_mail: eMail,
+                };
+                console.log(data);
+
+                const res = await db.collection('users').doc(uid).set(data);
+                navigate("MainPage");
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                console.log(errorCode);
+                console.log(errorMessage);
                 // ..
             });
     }
@@ -62,7 +76,7 @@ const Register = () => {
         <>
             <h1>Register</h1>
             <label>nombre usuario</label>
-            <input id="username" type="text" style={{ background: 'gray' }}></input>
+            <input id="userName" type="text" style={{ background: 'gray' }}></input>
             <label>correo</label>
             <input id="email" type="email" style={{ background: 'gray' }} ></input>
             <label>contraseña</label>
